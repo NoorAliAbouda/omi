@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL-ectronic</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"
+    integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>رجاء الدعاء لأمي وقراءة الفاتحة لها<br><i style="color: red" class="fa fa-heart"></i>  أمي طبيبي ودوائي</h1>
+            <div class="cont">
+                <div class="total">
+                    <span>01</span>
+                    <p>تسبيحات اليوم</p>
+                </div>
+                <div>
+                    <h1 class="title">سبحان الله</h1>
+                </div>
+                <div class="total">
+                    <span>01</span>
+                    <p>مجموع تسبيحاتك </p>
+                </div>
+            </div>
+            <div class="plus-min">
+                <h1>01</h1>
+            </div>
+            <div class="plus">
+                <span>+</span>
+            </div>
+            <div class="end">
+                <p>رجوع</p>
+            </div>
+        </div>
+        <div class="gena">
+            <img src="1.jpeg">
+        </div>
+
+
+    </div>
+    <div class="darkAndLight">
+
+    </div>
+    <script>
+        let plus = document.querySelector('.plus'),
+        back = document.querySelector('.end'),
+        count = document.querySelector('.plus-min h1'),
+        total = document.querySelectorAll(".total span"),
+        title = document.querySelector(".title");
+
+        let a = 1;
+
+        plus.addEventListener("click", function(e) {
+            a++;
+            //console.log(a);
+            count.innerHTML = (a < 10 ? "0" + a : a);
+            localStorage.setItem('total', a);
+
+            if(a == "11") {
+                title.innerHTML = "الحمدلله";
+            }
+            else if(a == "22") {
+                title.innerHTML = "الله اكبر";
+            }
+            else if(a == "33") {
+                title.innerHTML = "لا اله الا الله محمد رسول الله";
+            }
+            else if(a == "44") {
+                title.innerHTML = "اللهم اغفر لامي نور عيني وصبابة صدري";
+            }
+            if(a == "55") {
+                title.innerHTML = "اللهم صلي وسلم  وبارك علي سيدنا محمد";
+            }
+
+
+        })
+
+        let x = Number(localStorage.getItem("total"));
+        x += Number( localStorage.getItem("total"))
+        console.log(x)
+        total.forEach(function(el) {
+            if(localStorage.getItem("total")) {
+                el.innerHTML = x;
+            }
+        })
+
+        back.addEventListener("click", function(e) {
+            e.preventDefault();
+            window.location.reload();
+        })
+
+
+        let toggle = document.querySelector('.darkAndLight'),
+        body = document.querySelector('body'),
+        content = document.querySelector('.content');
+
+        toggle.addEventListener("click", function(e) {
+            toggle.classList.toggle('active')
+        })
+
+        toggle.addEventListener("click", function(e) {
+            body.classList.toggle('dark');
+        })
+    </script>
+</body>
+</html>
